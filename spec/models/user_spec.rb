@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject {
-    User.new(name: 'Anthony', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Full-Stack web developer.')
-  }
+  subject { User.new(name: 'Anthony', photo: 'https://un/photos/F_-0BxGuVvo', bio: 'Full-Stack web dev.') }
   before { subject.save }
 
   it 'name should not be blank' do
