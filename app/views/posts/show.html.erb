@@ -1,3 +1,13 @@
-<h1>Signle Post</h1>
-
-<h4>This page will show a single post for a user</h4>
+<article class="post-snipet">
+    <h3><%= @post.title %>  by <%= @post.author.name %></h3>
+    <div class="post-stats">
+      <span>Comments <%= @post.comments_counter %> &nbsp;,&nbsp;</span>
+      <span>Likes <%= @post.likes_counter %></span>
+    </div>
+    <p><%= @post.text %></p>
+  </article>
+  <ul class="comments">
+    <% @post.recent_comments.each do |comment| %>
+      <li><%= comment.author.name %>: <%= comment.text %>
+    <% end %>
+  </ul>
