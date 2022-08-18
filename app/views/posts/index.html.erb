@@ -1,5 +1,5 @@
 <%= render partial: 'partials/user', locals: { user: @user } %>
-<% @user_posts.each do |post| %>
+<%  @user_posts.each do |post| %>
     <%= render partial: 'partials/post', locals: { post: post} %>
       <ul class="comments">
       <% post.recent_comments.each do |comment| %>
