@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @user_posts = Post.where(author_id: params[:user_id]).order(created_at: :desc).limit(5)
+    @user_posts = @user.recent_posts
   end
 
   def show
