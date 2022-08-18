@@ -1,8 +1,12 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
+  has_many :likes, dependent: :destroy, class_name: 'Like'
+  has_many :comments, dependent: :destroy, class_name: 'Comment'
+
+  after_save :update_user_posts
 
   def update_user_posts
-    author.increment!(:counter)
+    author.increment!(:posts_counter)
   end
 
   # Post validations

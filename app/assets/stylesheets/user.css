@@ -1,0 +1,33 @@
+
+.user {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  padding: 10px 0;
+  margin: 5px 0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.user .user_picture {
+  max-height: 80px;
+  max-width: 90px;
+}
+
+.user .content {
+  display: flex;
+  width: calc(100% - 130px);
+  border: 2px solid #333;
+  border-radius: 2px;
+  height: calc(80px - 10px);
+  flex-direction: column;
+  padding: 5px 15px;
+}
+
+.user .content h2 {
+  margin: 0;
+}
+
+.user .content p {
+  text-align: right;
+}
