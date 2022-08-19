@@ -6,7 +6,7 @@
     </div>
     <p><%= @post.text %></p>
   </article>
-  <%= form_for @like, url:likes_path do |f|%>
+  <%= form_for @like, url:post_likes_path(@post) do |f|%>
   <%= f.hidden_field :author_id, value: @post.author.id %>
   <%= f.hidden_field :post_id, value: @post.id %>
   <%= f.submit "Like", class:'btn', disable_with: 'updating likes...' %>
@@ -17,7 +17,7 @@
     <% end %>
   </ul>
   <h4>Add comment</h4>
-  <%= form_for @comment, url:comments_path do |f| %>
+  <%= form_for @comment, url:post_comments_path(@post) do |f| %>
     <%= f.hidden_field :author_id, value: @post.author.id %>
     <%= f.hidden_field :post_id, value: @post.id %>
     <%= f.label :text %><br />
