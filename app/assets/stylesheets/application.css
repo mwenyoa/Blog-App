@@ -49,6 +49,7 @@
   margin-top: -9px;
 }
 
+.btn,
 .see-all-btn {
   display: block;
   width: 90px;
@@ -65,4 +66,51 @@
 a {
   text-decoration: none;
   color: teal;
+}
+
+.new_like {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-top: -9px;
+}
+
+.new_comment {
+  display: flex;
+  flex-flow: column;
+}
+
+.new_comment #comment_text {
+  display: inline-block;
+  width: 50%;
+  height: 100px;
+}
+
+.new_comment input {
+  width: fit-content;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 2%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.new_post {
+  color: #fff;
+  background-color: teal;
+  width: 30%;
+  margin: 5% auto;
+  padding: 2%;
+  box-shadow: 0 1px 8px 1px rgba(112, 109, 109, 0.8);
+}
+
+.new_post,
+textarea,
+#post_title {
+  width: 80%;
+  padding: 2%;
+  margin: 1% auto;
 }
