@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User', type: :feature do
-  before (:each) do
+  before(:each) do
     @first_user = User.create!(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                                bio: 'Teacher from Mexico.')
     second_user = User.create!(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
@@ -96,12 +96,10 @@ RSpec.describe 'User', type: :feature do
       expect(pics[0][:src]).not_to be('')
       expect(pics.length).to eq (users.length - 1)
     end
-
     it 'Should display user name' do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('Tom')
     end
-
     it 'Should display user s posts count ' do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('Number of posts: 4')
@@ -111,22 +109,18 @@ RSpec.describe 'User', type: :feature do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('Post 1')
     end
-
     it "I can see some of the post's body" do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('This is my first post')
     end
-
     it 'I can see the first comments on a post' do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('This is my first post')
     end
-
     it 'should display post s likes counter' do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('Likes 0')
     end
-
     it 'Should redirect to post s page' do
       visit user_posts_path(@first_user.id)
       click_link 'Post 1'
