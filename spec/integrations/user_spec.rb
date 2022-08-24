@@ -133,4 +133,28 @@ RSpec.describe 'User', type: :feature do
       expect(current_path).to eq(user_post_path(@first_user.id, @first_user.posts.first.id))
     end
   end
+
+  context 'User post show page' do
+    it 'Should display post text' do
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('This is my first post')
+    end
+
+    it 'Should display comments counter' do
+      visit user_post_path(@first_user.id, @first_user.posts.first.id)
+      expect(page).to have_content('Comments 0')
+    end
+
+    it 'Should display first comment' do
+      @first_user.comments.create(post_id: @first_user.posts.first.id, text: 'Comment1')
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('Comments 1')
+    end
+
+    it 'Should redirect to post s page' do
+      visit user_posts_path(@first_user.id)
+      click_link 'Post 1'
+      expect(current_path).to eq(user_post_path(@first_user.id, @first_user.posts.first.id))
+    end
+  end
 end
