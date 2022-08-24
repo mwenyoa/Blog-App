@@ -112,10 +112,6 @@ RSpec.describe 'User', type: :feature do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('This is my first post')
     end
-    it 'I can see the first comments on a post' do
-      visit user_posts_path(@first_user.id)
-      expect(page).to have_content('This is my first post')
-    end
     it 'should display post s likes counter' do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('Likes 0')
