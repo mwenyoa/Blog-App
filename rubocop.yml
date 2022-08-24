@@ -31,7 +31,7 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  IgnoredMethods: ['describe']
+  IgnoredMethods: ['describe', 'context']
   Max: 40
 
 Style/Documentation:

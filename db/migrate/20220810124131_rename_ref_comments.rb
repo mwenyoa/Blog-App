@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # rubocop: nodoc
 class RenameRefComments < ActiveRecord::Migration[7.0]
   def change
