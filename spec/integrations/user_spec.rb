@@ -87,4 +87,50 @@ RSpec.describe 'User', type: :feature do
       expect(current_path).to eq(user_posts_path(@first_user.id))
     end
   end
+
+  context 'User post index page' do
+    it 'Should display user photo' do
+      visit user_posts_path(@first_user.id)
+      users = User.all.order(:id)
+      pics = page.all('img')
+      expect(pics[0][:src]).not_to be('')
+      expect(pics.length).to eq (users.length - 1)
+    end
+
+    it 'Should display user name' do
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('Tom')
+    end
+
+    it 'Should display user s posts count ' do
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('Number of posts: 4')
+    end
+
+    it 'Should display post title' do
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('Post 1')
+    end
+
+    it "I can see some of the post's body" do
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('This is my first post')
+    end
+
+    it 'I can see the first comments on a post' do
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('This is my first post')
+    end
+
+    it 'should display post s likes counter' do
+      visit user_posts_path(@first_user.id)
+      expect(page).to have_content('Likes 0')
+    end
+
+    it 'Should redirect to post s page' do
+      visit user_posts_path(@first_user.id)
+      click_link 'Post 1'
+      expect(current_path).to eq(user_post_path(@first_user.id, @first_user.posts.first.id))
+    end
+  end
 end
