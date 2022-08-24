@@ -46,72 +46,64 @@ RSpec.describe 'User', type: :feature do
   end
 
   context 'User show page' do
-    it 'I should see the user username' do
+    before(:each) do
       visit user_path(@first_user.id)
+    end
+    it 'I should see the user username' do
       expect(page).to have_content('Tom')
     end
     it 'Should display user photo' do
-      visit user_path(@first_user.id)
       users = User.all.order(:id)
       pics = page.all('img')
       expect(pics[0][:src]).not_to be('')
       expect(pics.length).to eq users.length - 1
     end
     it 'I can see the user bio' do
-      visit user_path(@first_user.id)
       expect(page).to have_content('Teacher from Mexico.')
     end
     it 'I can see the number of posts the user has written' do
-      visit user_path(@first_user.id)
       expect(page).to have_content('Number of posts: 4')
     end
     it 'Should display 3 last posts of user' do
-      visit user_path(@first_user.id)
       expect(page).to have_content('Post 1')
       expect(page).to have_content('Post 2')
       expect(page).to have_content('Post 3')
     end
     it 'I should see a button that lets me view all of a user posts' do
-      visit user_path(@first_user.id)
       expect(page).to have_content('see all posts')
     end
     it 'Should display all user post' do
-      visit user_path(@first_user.id)
       click_link 'see all posts'
       expect(current_path).to eq(user_posts_path(@first_user.id))
     end
   end
 
   context 'User post index page' do
-    it 'Should display user photo' do
+    before(:each) do
       visit user_posts_path(@first_user.id)
+    end
+    it 'Should display user photo' do
       users = User.all.order(:id)
       pics = page.all('img')
       expect(pics[0][:src]).not_to be('')
       expect(pics.length).to eq users.length - 1
     end
     it 'Should display user name' do
-      visit user_posts_path(@first_user.id)
       expect(page).to have_content('Tom')
     end
     it 'Should display user s posts count ' do
-      visit user_posts_path(@first_user.id)
       expect(page).to have_content('Number of posts: 4')
     end
     it 'Should display post title' do
-      visit user_posts_path(@first_user.id)
       expect(page).to have_content('Post 1')
     end
     it "I can see some of the post's body" do
-      visit user_posts_path(@first_user.id)
       expect(page).to have_content('This is my first post')
     end
     it 'should display post s likes counter' do
-      visit user_posts_path(@first_user.id)
       expect(page).to have_content('Likes 0')
     end
     it 'Should redirect to post s page' do
-      visit user_posts_path(@first_user.id)
       click_link 'Post 1'
       expect(current_path).to eq(user_post_path(@first_user.id, @first_user.posts.first.id))
     end
