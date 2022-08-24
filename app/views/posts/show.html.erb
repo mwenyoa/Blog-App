@@ -16,7 +16,7 @@
       <li><%= comment.author.name %>: <%= comment.text %>
     <% end %>
   </ul>
-  <h4>Add comment</h4>
+  <h4>Add Comment</h4>
   <%= form_for @comment, url:post_comments_path(@post) do |f| %>
     <%= f.hidden_field :author_id, value: @post.author.id %>
     <%= f.hidden_field :post_id, value: @post.id %>
