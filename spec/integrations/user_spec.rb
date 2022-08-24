@@ -56,7 +56,7 @@ RSpec.describe 'User', type: :feature do
       users = User.all.order(:id)
       pics = page.all('img')
       expect(pics[0][:src]).not_to be('')
-      expect(pics.length).to eq (users.length - 1)
+      expect(pics.length).to eq users.length - 1
     end
 
     it 'I can see the user bio' do
@@ -94,7 +94,7 @@ RSpec.describe 'User', type: :feature do
       users = User.all.order(:id)
       pics = page.all('img')
       expect(pics[0][:src]).not_to be('')
-      expect(pics.length).to eq (users.length - 1)
+      expect(pics.length).to eq users.length - 1
     end
     it 'Should display user name' do
       visit user_posts_path(@first_user.id)
