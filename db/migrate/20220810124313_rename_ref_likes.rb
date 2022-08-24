@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop: nodoc
 class RenameRefLikes < ActiveRecord::Migration[7.0]
   def change
