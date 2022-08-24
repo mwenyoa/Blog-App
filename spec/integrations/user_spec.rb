@@ -17,4 +17,31 @@ RSpec.describe 'User', type: :feature do
     Post.create!(author: second_user, title: 'Post 2', text: 'This is my second post')
   end
 
+  context 'User index page' do
+    it 'I should see the username of all other users' do
+      visit users_path
+      expect(page).to have_content('Tom')
+      expect(page).to have_content('Lilly')
+    end
+
+    it 'I should see the profile picture for each user' do
+      visit users_path
+      users = User.all.order(:id)
+      pics = page.all('img')
+      expect(pics[0][:src]).not_to be('')
+      expect(pics.length).to eq users.length
+    end
+
+    it 'I should see the number of posts each user has written' do
+      visit users_path
+      expect(page).to have_content('Number of posts: 4')
+      expect(page).to have_content('Number of posts: 2')
+    end
+
+    it "When I click on a user, I am redirected to that user's show page" do
+      visit users_path
+      click_link 'Tom'
+      expect(current_path).to eq(user_path(User.first))
+    end
+  end
 end
