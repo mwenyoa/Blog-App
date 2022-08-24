@@ -8,6 +8,12 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
 
+  Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'test/**/*.rb'
+
   DisplayCopNames: true
 
 Layout/LineLength:
@@ -58,3 +64,4 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+

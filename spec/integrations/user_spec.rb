@@ -104,7 +104,6 @@ RSpec.describe 'User', type: :feature do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('Number of posts: 4')
     end
-
     it 'Should display post title' do
       visit user_posts_path(@first_user.id)
       expect(page).to have_content('Post 1')
