@@ -50,7 +50,6 @@ RSpec.describe 'User', type: :feature do
       visit user_path(@first_user.id)
       expect(page).to have_content('Tom')
     end
-
     it 'Should display user photo' do
       visit user_path(@first_user.id)
       users = User.all.order(:id)
@@ -58,29 +57,24 @@ RSpec.describe 'User', type: :feature do
       expect(pics[0][:src]).not_to be('')
       expect(pics.length).to eq users.length - 1
     end
-
     it 'I can see the user bio' do
       visit user_path(@first_user.id)
       expect(page).to have_content('Teacher from Mexico.')
     end
-
     it 'I can see the number of posts the user has written' do
       visit user_path(@first_user.id)
       expect(page).to have_content('Number of posts: 4')
     end
-
     it 'Should display 3 last posts of user' do
       visit user_path(@first_user.id)
       expect(page).to have_content('Post 1')
       expect(page).to have_content('Post 2')
       expect(page).to have_content('Post 3')
     end
-
     it 'I should see a button that lets me view all of a user posts' do
       visit user_path(@first_user.id)
       expect(page).to have_content('see all posts')
     end
-
     it 'Should display all user post' do
       visit user_path(@first_user.id)
       click_link 'see all posts'
