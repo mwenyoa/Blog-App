@@ -128,7 +128,8 @@ textarea,
 }
 
 .new_user input[type="email"],
-input[type="password"], input[type="text"] {
+input[type="password"],
+input[type="text"] {
   width: 90%;
   margin: 10px auto;
   padding: 10px;
@@ -149,15 +150,13 @@ h1 {
   text-align: center;
 }
 
-
-.notice-center .alert{
+.notice-center .alert {
   color: red;
 }
 
-.notice-center .notice{
-  color:green;
+.notice-center .notice {
+  color: green;
 }
-
 
 .shared-links {
   text-align: center;
