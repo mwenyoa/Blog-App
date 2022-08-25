@@ -114,3 +114,31 @@ textarea,
   padding: 2%;
   margin: 1% auto;
 }
+
+.new_user {
+  background-color: teal;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  margin: 5% auto;
+  height: 300px;
+  justify-content: center;
+}
+
+.new_user input[type="email"],
+input[type="password"] {
+  width: 90%;
+  margin: 2% auto;
+  padding: 15px;
+}
+
+.new_user input[type="submit"] {
+  padding: 15px;
+  width: auto;
+  margin: 2% auto;
+}
+
+h2 {
+  text-align: center;
+}
