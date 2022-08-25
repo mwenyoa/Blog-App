@@ -27,6 +27,7 @@
   flex-direction: column;
   gap: 10px;
   list-style-type: none;
+  justify-content: flex-start;
 }
 
 .post h3 {
@@ -113,4 +114,50 @@ textarea,
   width: 80%;
   padding: 2%;
   margin: 1% auto;
+}
+
+.new_user {
+  background-color: teal;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  margin: 5% auto;
+  height: auto;
+  justify-content: center;
+}
+
+.new_user input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.new_user > input[type="submit"] {
+  padding: 15px;
+  width: auto;
+  margin: 10px auto;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.notice-center {
+  text-align: center;
+}
+
+.notice-center .alert {
+  color: red;
+}
+
+.notice-center .notice {
+  color: green;
+}
+
+.shared-links {
+  text-align: center;
 }
